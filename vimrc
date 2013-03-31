@@ -100,6 +100,13 @@ endfunction
 	let g:jedi#autocompletion_command = "<M-space>"
 " }
 
+" DScanner stuff {
+	"" These absolute paths have to be fixed for each installation if you need to
+	"" use the dscanner plugin to autocomplete the d code.
+	let g:dscanner_path = "~/dev/Dscanner/dscanner"
+	let g:dscanner_includePath = ['/usr/local/Cellar/dmd/2.061/src/phobos', '/usr/local/Cellar/dmd/2.061/druntime/import']
+" }
+
 " Custom mappings {
 	nmap <leader>h :nohl<CR>
 	nmap <leader>t :NERDTreeToggle<CR>
