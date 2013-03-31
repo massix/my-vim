@@ -6,6 +6,8 @@ My VIM Configuration
   with no effort needed to configure it.
 - cocoa.vim: provides some support for Obj-C and Obj-C++ programming on Mac OS platform
 - conque: terminal in VIm
+- dscanner: autocompletion for D (not fully working, but better than nothing..)
+    in order to use this plugin you first have to manually install dscanner.
 - dwm: tiled window management for vim made easy
 - gundo: provides a visual tree of the undo history for the files
 - javacomplete: the name says it all
