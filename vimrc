@@ -29,6 +29,49 @@ set laststatus=2
 set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
 set display=lastline
 
+"" Functions have to be at the very beginning
+
+"" Better highlighting for C++ stuff
+function! EnhanceSyntax()
+    syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
+    hi def link cppFuncDef Special
+endfunction
+
+function! ToggleMouse()
+    if &mouse == 'a'
+        set mouse=
+    else
+        set mouse=a
+    endif
+    echon "mouse=" &mouse
+endfunction
+
+"" Complete "#i" automatgically
+function! SmartInclude()
+    let next = nr2char( getchar( 0 ) )
+    if next == '"'
+        return "#include \".hpp\"\<Left>\<Left>\<Left>\<Left>\<Left>"
+    endif
+    if next == '<'
+        return "#include <>\<Left>"
+    endif
+    return "#include <.h>\<Left>\<Left>\<Left>"
+endfunction
+
+"" Change the background from dark to light with a simple keymap
+function! SwitchBackground()
+	if &background == 'dark'
+		set background=light
+	else
+		set background=dark
+	endif
+	echon "background=" &background
+endfunction
+
+
+" ------ Beginning of customizations ------ "
+
+
 " Clang stuff {
 	let g:clang_complete_copen = 1
 	let g:clang_complete_auto = 1
@@ -48,67 +91,40 @@ set display=lastline
 	autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 " }
 
-function! EnhanceSyntax()
-    syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
-    hi def link cppFuncDef Special
-endfunction
+" NerdTree stuff {
+	let NERDChristmasTree = 1
+	let NERDTreeChDirMode = 2
+" }
 
-function! ToggleMouse()
-    if &mouse == 'a'
-        set mouse=
-    else
-        set mouse=a
-    endif
-    echon "mouse=" &mouse
-endfunction
+" Jedi stuff {
+	let g:jedi#autocompletion_command = "<M-space>"
+" }
 
-function! SmartInclude()
-    let next = nr2char( getchar( 0 ) )
-    if next == '"'
-        return "#include \".hpp\"\<Left>\<Left>\<Left>\<Left>\<Left>"
-    endif
-    if next == '<'
-        return "#include <>\<Left>"
-    endif
-    return "#include <.h>\<Left>\<Left>\<Left>"
-endfunction
+" Custom mappings {
+	nmap <leader>h :nohl<CR>
+	nmap <leader>t :NERDTreeToggle<CR>
+	nmap <leader>m :call ToggleMouse()<CR>
+	nmap <leader>s :source ~/.vimrc<CR>
+	nmap <leader>b :call SwitchBackground()<CR>
+	nmap <leader>g :GundoToggle<CR>
+	nmap <leader>n :NumbersToggle<CR>
+	nmap <leader>y :YRShow<CR>
 
-function! SwitchBackground()
-	if &background == 'dark'
-		set background=light
-	else
-		set background=dark
-	endif
-	echon "background=" &background
-endfunction
+	iab #i <C-R>=SmartInclude()<CR>
+" }
 
-nmap <leader>h :nohl<CR>
-nmap <leader>t :NERDTreeToggle<CR>
-nmap <leader>m :call ToggleMouse()<CR>
-nmap <leader>s :source ~/.vimrc<CR>
-nmap <leader>b :call SwitchBackground()<CR>
-nmap <leader>g :GundoToggle<CR>
-nmap <leader>n :NumbersToggle<CR>
-nmap <leader>y :YRShow<CR>
 
-iab #i <C-R>=SmartInclude()<CR>
+" Random stuff {
+	autocmd Syntax cpp call EnhanceSyntax()
 
-autocmd Syntax cpp call EnhanceSyntax()
+	augroup filetype
+		au! BufRead,BufNewFile *.proto setfiletype proto
+	augroup end
+" }
 
-augroup filetype
-  au! BufRead,BufNewFile *.proto setfiletype proto
-augroup end
-
-"" Customizations for NERDTree
-let NERDChristmasTree = 1
-let NERDTreeChDirMode = 2
-
-"" Jedi stuff
-let g:jedi#autocompletion_command = "<M-space>"
-
-" This is to activate Powerline, unluckily it gives problems with the
-" autocompletion stuff :(
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" Powerline stuff {
+	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" }
 
 call pathogen#infect()
 
