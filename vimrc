@@ -109,6 +109,7 @@ endfunction
 	nmap <leader>g :GundoToggle<CR>
 	nmap <leader>n :NumbersToggle<CR>
 	nmap <leader>y :YRShow<CR>
+	nmap <leader>k :TMiniBufExplorer<CR>
 
 	iab #i <C-R>=SmartInclude()<CR>
 " }
