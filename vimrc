@@ -80,6 +80,8 @@ endfunction
 	let g:clang_complete_macros = 1
 	let g:clang_complete_patterns = 1
 	let g:clang_close_preview = 1
+	let g:clang_user_options = ' -std=c++0x'
+	let g:clang_auto_select = 1
 " }
 
 " Syntastic stuff {
