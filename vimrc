@@ -138,11 +138,3 @@ endfunction
 
 call pathogen#infect()
 
-" This has to be called after the pathogen infect
-if has("gui_running")
-	"set background=dark
-	colo jellybeans
-else
-	colo evening
-endif
-
