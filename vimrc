@@ -152,6 +152,16 @@ endfunction
 	augroup end
 " }
 
+" YCM {
+		let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/cpp/ycm/*', '!~/*']
+		let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+		let g:ycm_autoclose_preview_window_after_completion = 1
+		let g:ycm_autoclose_preview_window_after_insertion = 1
+
+		nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+		nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" }
+
 " Powerline stuff {
 	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " }
