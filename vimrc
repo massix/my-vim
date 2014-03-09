@@ -135,10 +135,7 @@ endfunction
 	nmap <leader>m :call ToggleMouse()<CR>
 	nmap <leader>s :source ~/.vimrc<CR>
 	nmap <leader>b :call SwitchBackground()<CR>
-	nmap <leader>g :GundoToggle<CR>
 	nmap <leader>n :NumbersToggle<CR>
-	nmap <leader>y :YRShow<CR>
-	nmap <leader>k :TMiniBufExplorer<CR>
 
 	iab #i <C-R>=SmartInclude()<CR>
 " }
