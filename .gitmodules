@@ -2,7 +2,7 @@
 	path = bundle/YankRing.vim
 	url = https://github.com/vim-scripts/YankRing.vim
 [submodule "bundle/clang_complete"]
-	path = bundle/clang_complete
+	path = uninstalled/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule "bundle/cocoa.vim"]
 	path = bundle/cocoa.vim
@@ -17,19 +17,19 @@
 	path = bundle/javacomplete
 	url = https://github.com/vim-scripts/javacomplete
 [submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
+	path = uninstalled/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/jellybeans.vim"]
 	path = bundle/jellybeans.vim
 	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "bundle/minibufexpl.vim"]
-	path = bundle/minibufexpl.vim
+	path = uninstalled/minibufexpl.vim
 	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+	path = uninstalled/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/numbers.vim"]
 	path = bundle/numbers.vim
@@ -67,3 +67,6 @@
 [submodule "bundle/vim-sensible"]
 	path = bundle/vim-sensible
 	url = git://github.com/tpope/vim-sensible.git
+[submodule "bundle/you-complete-me"]
+	path = bundle/you-complete-me
+	url = https://github.com/Valloric/YouCompleteMe.git
