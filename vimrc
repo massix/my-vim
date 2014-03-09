@@ -29,6 +29,26 @@ set laststatus=2
 set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
 set display=lastline
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+
+" ------ Bundles installed through Vundle ------ "
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'L9'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/Powerline'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'tpope/vim-sensible'
+
+
 "" Functions have to be at the very beginning
 
 "" Better highlighting for C++ stuff
@@ -135,6 +155,4 @@ endfunction
 " Powerline stuff {
 	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " }
-
-call pathogen#infect()
 
