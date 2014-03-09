@@ -38,11 +38,7 @@ My VIM Configuration
 2. Initialize the submodules from withing your `~/.vim`:
    `git submodules update --init`
 
-3. Install the missing packages using pip:
-   `pip install jedi powerline`
-
-4. Create a `~/.vimrc` that does nothing but loading the provided `vimrc`:
-   `echo 'source ~/.vim/vimrc' >> ~/.vimrc`
+3. Install the bundles through vundle (:BundleInstall)
 
 5. Have fun!
 
