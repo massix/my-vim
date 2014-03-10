@@ -50,6 +50,7 @@ Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/syntastic'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'kien/ctrlp.vim.git'
+Bundle 'airblade/vim-gitgutter.git'
 
 
 "" Functions have to be at the very beginning
