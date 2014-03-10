@@ -161,6 +161,15 @@ endfunction
 		nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " }
 
+" EasyMotion {
+	map / <Plug>(easymotion-sn)
+	omap / <Plug>(easymotion-tn)
+	map n <Plug>(easymotion-next)
+	map N <Plug>(easymotion-prev)
+	nmap s <Plug>(easymotion-s2)
+	nmap t <Plug>(easymotion-t2)
+" }
+
 " Powerline stuff {
 	set rtp+=~/.vim/bundle/Powerline/powerline/bindings/vim
 " }
