@@ -164,3 +164,8 @@ endfunction
 	set rtp+=~/.vim/bundle/Powerline/powerline/bindings/vim
 " }
 
+
+" Fugitive config {
+	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
+" }
+
