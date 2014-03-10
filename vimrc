@@ -49,6 +49,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/syntastic'
 Bundle 'ludovicchabant/vim-lawrencium'
+Bundle 'kien/ctrlp.vim.git'
 
 
 "" Functions have to be at the very beginning
@@ -174,6 +175,12 @@ endfunction
 	set rtp+=~/.vim/bundle/Powerline/powerline/bindings/vim
 " }
 
+
+" CtrlP {
+
+	nmap <leader>T :CtrlPMixed<CR>
+
+" }
 
 " Fugitive config {
 	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
