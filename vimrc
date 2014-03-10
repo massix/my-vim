@@ -44,13 +44,15 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'msanders/snipmate.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/syntastic'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'airblade/vim-gitgutter.git'
+Bundle 'Raimondi/delimitMate.git'
+Bundle 'SirVer/ultisnips.git'
+Bundle 'honza/vim-snippets.git'
 
 
 "" Functions have to be at the very beginning
@@ -178,9 +180,37 @@ endfunction
 
 
 " CtrlP {
-
 	nmap <leader>T :CtrlPMixed<CR>
+" }
 
+" I need to remap these in order to avoid conflicts with YCM
+" UltiSnips {
+
+	function! g:UltiSnips_Complete()
+		call UltiSnips#ExpandSnippet()
+		if g:ulti_expand_res == 0
+			if pumvisible()
+				return "\<C-n>"
+			else
+				call UltiSnips#JumpForwards()
+				if g:ulti_jump_forwards_res == 0
+					return "\<TAB>"
+				endif
+			endif
+		endif
+		return ""
+	endfunction
+
+	au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+	let g:UltiSnipsJumpForwardTrigger="<tab>"
+	let g:UltiSnipsListSnippets="<c-e>"
+
+	let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+	" Use the followings if the function doesn't work properly
+	"let g:UltiSnipsExpandTrigger="<c-j>"
+	"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+	"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " }
 
 " Fugitive config {
