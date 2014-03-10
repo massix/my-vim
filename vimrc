@@ -47,6 +47,7 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
+Bundle 'scrooloose/syntastic'
 
 
 "" Functions have to be at the very beginning
