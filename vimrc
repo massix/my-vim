@@ -1,5 +1,5 @@
 syntax on
-filetype plugin indent on
+filetype off
 
 set modelines=5
 set guifont=Menlo\ for\ Powerline:h10
@@ -53,6 +53,8 @@ Bundle 'airblade/vim-gitgutter.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'SirVer/ultisnips.git'
 Bundle 'honza/vim-snippets.git'
+
+filetype plugin indent on
 
 
 "" Functions have to be at the very beginning
