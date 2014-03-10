@@ -161,6 +161,6 @@ endfunction
 " }
 
 " Powerline stuff {
-	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+	set rtp+=~/.vim/bundle/Powerline/powerline/bindings/vim
 " }
 
