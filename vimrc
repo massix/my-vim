@@ -2,7 +2,6 @@ syntax on
 filetype off
 
 set modelines=5
-set guifont=Menlo\ for\ Powerline:h10
 set ts=2
 set sw=2
 set nocp
@@ -39,7 +38,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'L9'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/Powerline'
+Bundle 'bling/vim-airline.git'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -175,11 +174,6 @@ endfunction
 	nmap s <Plug>(easymotion-s2)
 	nmap t <Plug>(easymotion-t2)
 " }
-
-" Powerline stuff {
-	set rtp+=~/.vim/bundle/Powerline/powerline/bindings/vim
-" }
-
 
 " CtrlP {
 	nmap <leader>T :CtrlPMixed<CR>
