@@ -52,6 +52,7 @@ Bundle 'airblade/vim-gitgutter.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'SirVer/ultisnips.git'
 Bundle 'honza/vim-snippets.git'
+Bundle 'sickill/vim-monokai.git'
 
 filetype plugin indent on
 
@@ -167,12 +168,12 @@ endfunction
 " }
 
 " EasyMotion {
-	map / <Plug>(easymotion-sn)
-	omap / <Plug>(easymotion-tn)
-	map n <Plug>(easymotion-next)
-	map N <Plug>(easymotion-prev)
-	nmap s <Plug>(easymotion-s2)
-	nmap t <Plug>(easymotion-t2)
+	"map / <Plug>(easymotion-sn)
+	"omap / <Plug>(easymotion-tn)
+	"map n <Plug>(easymotion-next)
+	"map N <Plug>(easymotion-prev)
+	"nmap s <Plug>(easymotion-s2)
+	"nmap t <Plug>(easymotion-t2)
 " }
 
 " CtrlP {
