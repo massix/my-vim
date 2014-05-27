@@ -41,7 +41,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'bling/vim-airline.git'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/nerdtree'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
@@ -54,6 +54,7 @@ Bundle 'Raimondi/delimitMate.git'
 "Bundle 'honza/vim-snippets.git'
 Bundle 'sickill/vim-monokai.git'
 Bundle 'kshenoy/vim-signature.git'
+Bundle 'tpope/vim-vinegar.git'
 
 filetype plugin indent on
 
@@ -123,8 +124,8 @@ endfunction
 " }
 
 " NerdTree stuff {
-	let NERDChristmasTree = 1
-	let NERDTreeChDirMode = 2
+	"let NERDChristmasTree = 1
+	"let NERDTreeChDirMode = 2
 " }
 
 " Jedi stuff {
@@ -140,7 +141,7 @@ endfunction
 
 " Custom mappings {
 	nmap <leader>h :nohl<CR>
-	nmap <leader>t :NERDTreeToggle<CR>
+	"nmap <leader>t :NERDTreeToggle<CR>
 	nmap <leader>m :call ToggleMouse()<CR>
 	nmap <leader>s :source ~/.vimrc<CR>
 	nmap <leader>b :call SwitchBackground()<CR>
