@@ -34,27 +34,30 @@ call vundle#rc()
 
 " ------ Bundles installed through Vundle ------ "
 Bundle 'gmarik/vundle'
-"Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'L9'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bling/vim-airline.git'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'scrooloose/nerdtree'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
-"Bundle 'scrooloose/syntastic'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'kien/ctrlp.vim.git'
-"Bundle 'airblade/vim-gitgutter.git'
 Bundle 'Raimondi/delimitMate.git'
-"Bundle 'SirVer/ultisnips.git'
-"Bundle 'honza/vim-snippets.git'
 Bundle 'sickill/vim-monokai.git'
 Bundle 'kshenoy/vim-signature.git'
 Bundle 'tpope/vim-vinegar.git'
+
+" ----- Bundles tested and removed (but handy to have'em here) ----- "
+"Bundle 'L9'
+"Bundle 'SirVer/ultisnips.git'
+"Bundle 'honza/vim-snippets.git'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'airblade/vim-gitgutter.git'
+"Bundle 'scrooloose/nerdtree'
+
 
 filetype plugin indent on
 
@@ -167,6 +170,8 @@ endfunction
 
 		nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 		nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+		inoremap gd :YcmCompleter GoTo<CR>
+		nnoremap gd :YcmCompleter GoTo<CR>
 " }
 
 " EasyMotion {
