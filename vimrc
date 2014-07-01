@@ -49,8 +49,14 @@ Bundle 'Raimondi/delimitMate.git'
 Bundle 'sickill/vim-monokai.git'
 Bundle 'kshenoy/vim-signature.git'
 Bundle 'tpope/vim-vinegar.git'
+Bundle 'rking/ag.vim.git'
+Bundle 'programble/itchy.vim.git'
+Bundle 'mikewest/vimroom.git'
+Bundle 'vim-scripts/a.vim.git'
+Bundle 'octol/vim-cpp-enhanced-highlight.git'
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- "
+"Bundle 'Yggdroot/indentLine.git'
 "Bundle 'L9'
 "Bundle 'SirVer/ultisnips.git'
 "Bundle 'honza/vim-snippets.git'
@@ -170,8 +176,13 @@ endfunction
 
 		nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 		nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-		inoremap gd :YcmCompleter GoTo<CR>
 		nnoremap gd :YcmCompleter GoTo<CR>
+" }
+
+" indentLine {
+		"let g:indentLine_faster = 1
+		"inoremap <Leader>si <Esc>:IndentLinesToggle<CR>i
+		"nnoremap <Leader>si :IndentLinesToggle<CR>
 " }
 
 " EasyMotion {
