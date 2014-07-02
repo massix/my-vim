@@ -155,6 +155,11 @@ endfunction
 	nmap <leader>s :source ~/.vimrc<CR>
 	nmap <leader>b :call SwitchBackground()<CR>
 	nmap <leader>n :NumbersToggle<CR>
+  nnoremap <leader>d :tabnext<CR>
+  nnoremap <leader>a :tabprev<CR>
+  nnoremap <leader>w :tabclose<CR>
+  nnoremap <leader>e :tabe 
+  
 
 	iab #i <C-R>=SmartInclude()<CR>
 " }
@@ -227,6 +232,12 @@ endfunction
 	"let g:UltiSnipsJumpForwardTrigger="<c-j>"
 	"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " }
+
+" netrw defaults {
+    let g:netrw_liststyle=3
+    let g:netrw_sort_by="name"
+    
+"}
 
 " Fugitive config {
 	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
