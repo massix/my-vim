@@ -36,22 +36,34 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'L9'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bling/vim-airline.git'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
-Bundle 'scrooloose/syntastic'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'kien/ctrlp.vim.git'
-Bundle 'airblade/vim-gitgutter.git'
 Bundle 'Raimondi/delimitMate.git'
-Bundle 'SirVer/ultisnips.git'
-Bundle 'honza/vim-snippets.git'
+Bundle 'sickill/vim-monokai.git'
+Bundle 'kshenoy/vim-signature.git'
+Bundle 'tpope/vim-vinegar.git'
+Bundle 'rking/ag.vim.git'
+Bundle 'programble/itchy.vim.git'
+Bundle 'mikewest/vimroom.git'
+Bundle 'vim-scripts/a.vim.git'
+Bundle 'octol/vim-cpp-enhanced-highlight.git'
+
+" ----- Bundles tested and removed (but handy to have'em here) ----- "
+"Bundle 'Yggdroot/indentLine.git'
+"Bundle 'L9'
+"Bundle 'SirVer/ultisnips.git'
+"Bundle 'honza/vim-snippets.git'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'airblade/vim-gitgutter.git'
+"Bundle 'scrooloose/nerdtree'
+
 
 filetype plugin indent on
 
@@ -121,8 +133,8 @@ endfunction
 " }
 
 " NerdTree stuff {
-	let NERDChristmasTree = 1
-	let NERDTreeChDirMode = 2
+	"let NERDChristmasTree = 1
+	"let NERDTreeChDirMode = 2
 " }
 
 " Jedi stuff {
@@ -138,11 +150,16 @@ endfunction
 
 " Custom mappings {
 	nmap <leader>h :nohl<CR>
-	nmap <leader>t :NERDTreeToggle<CR>
+	"nmap <leader>t :NERDTreeToggle<CR>
 	nmap <leader>m :call ToggleMouse()<CR>
 	nmap <leader>s :source ~/.vimrc<CR>
 	nmap <leader>b :call SwitchBackground()<CR>
 	nmap <leader>n :NumbersToggle<CR>
+  nnoremap <leader>d :tabnext<CR>
+  nnoremap <leader>a :tabprev<CR>
+  nnoremap <leader>w :tabclose<CR>
+  nnoremap <leader>e :tabe 
+  
 
 	iab #i <C-R>=SmartInclude()<CR>
 " }
@@ -164,15 +181,22 @@ endfunction
 
 		nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 		nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+		nnoremap gd :YcmCompleter GoTo<CR>
+" }
+
+" indentLine {
+		"let g:indentLine_faster = 1
+		"inoremap <Leader>si <Esc>:IndentLinesToggle<CR>i
+		"nnoremap <Leader>si :IndentLinesToggle<CR>
 " }
 
 " EasyMotion {
-	map / <Plug>(easymotion-sn)
-	omap / <Plug>(easymotion-tn)
-	map n <Plug>(easymotion-next)
-	map N <Plug>(easymotion-prev)
-	nmap s <Plug>(easymotion-s2)
-	nmap t <Plug>(easymotion-t2)
+	"map / <Plug>(easymotion-sn)
+	"omap / <Plug>(easymotion-tn)
+	"map n <Plug>(easymotion-next)
+	"map N <Plug>(easymotion-prev)
+	"nmap s <Plug>(easymotion-s2)
+	"nmap t <Plug>(easymotion-t2)
 " }
 
 " CtrlP {
@@ -182,32 +206,38 @@ endfunction
 " I need to remap these in order to avoid conflicts with YCM
 " UltiSnips {
 
-	function! g:UltiSnips_Complete()
-		call UltiSnips#ExpandSnippet()
-		if g:ulti_expand_res == 0
-			if pumvisible()
-				return "\<C-n>"
-			else
-				call UltiSnips#JumpForwards()
-				if g:ulti_jump_forwards_res == 0
-					return "\<TAB>"
-				endif
-			endif
-		endif
-		return ""
-	endfunction
+	"function! g:UltiSnips_Complete()
+		"call UltiSnips#ExpandSnippet()
+		"if g:ulti_expand_res == 0
+			"if pumvisible()
+				"return "\<C-n>"
+			"else
+				"call UltiSnips#JumpForwards()
+				"if g:ulti_jump_forwards_res == 0
+					"return "\<TAB>"
+				"endif
+			"endif
+		"endif
+		"return ""
+	"endfunction
 
-	au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-	let g:UltiSnipsJumpForwardTrigger="<tab>"
-	let g:UltiSnipsListSnippets="<c-e>"
+	"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+	"let g:UltiSnipsJumpForwardTrigger="<tab>"
+	"let g:UltiSnipsListSnippets="<c-e>"
 
-	let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+	"let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 	" Use the followings if the function doesn't work properly
 	"let g:UltiSnipsExpandTrigger="<c-j>"
 	"let g:UltiSnipsJumpForwardTrigger="<c-j>"
 	"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " }
+
+" netrw defaults {
+    let g:netrw_liststyle=3
+    let g:netrw_sort_by="name"
+    
+"}
 
 " Fugitive config {
 	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
