@@ -241,5 +241,6 @@ endfunction
 
 " Fugitive config {
 	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
+  autocmd BufReadPost */notes/*.txt set ft=markdown      " Automatically set markdown for minion notes
 " }
 
