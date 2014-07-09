@@ -160,7 +160,7 @@ function generate_clang_tags_for_project()
     echo "Using branch name: ${BRANCH_NAME}"
     if [[ -d "${PROJECT_ROOT}/$1/tests/unit" ]]; then
       echo "Running checks too"
-      #MAKE_EXT="check"
+      MAKE_EXT="check"
     fi
   else
     echo "Project ${PROJECT_ROOT}/$1 doesn't exist (Makefile.am missing or directory doesn't exist)"
@@ -169,7 +169,7 @@ function generate_clang_tags_for_project()
 
   if [[ -e "${PROJECT_ROOT}/$1/compile_commands.json" ]]; then
     echo "Compilation DB exists, doing incremental build"
-    INCREMENTAL=1
+    #INCREMENTAL=1
   fi
 
   # Strip folders until we don't fall in the right one
