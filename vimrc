@@ -54,6 +54,7 @@ Bundle 'programble/itchy.vim.git'
 Bundle 'mikewest/vimroom.git'
 Bundle 'vim-scripts/a.vim.git'
 Bundle 'octol/vim-cpp-enhanced-highlight.git'
+Bundle 'osyo-manga/vim-over.git'
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- "
 "Bundle 'Yggdroot/indentLine.git'
