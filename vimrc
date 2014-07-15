@@ -43,7 +43,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
-Bundle 'ludovicchabant/vim-lawrencium'
+"Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'sickill/vim-monokai.git'
@@ -51,8 +51,8 @@ Bundle 'kshenoy/vim-signature.git'
 Bundle 'tpope/vim-vinegar.git'
 Bundle 'rking/ag.vim.git'
 Bundle 'programble/itchy.vim.git'
-Bundle 'mikewest/vimroom.git'
-Bundle 'vim-scripts/a.vim.git'
+"Bundle 'mikewest/vimroom.git'
+"Bundle 'vim-scripts/a.vim.git'
 Bundle 'octol/vim-cpp-enhanced-highlight.git'
 Bundle 'osyo-manga/vim-over.git'
 
@@ -182,7 +182,9 @@ endfunction
 
 		nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 		nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-		nnoremap gd :YcmCompleter GoTo<CR>
+		nnoremap gd :YcmCompleter GoToDefinition<CR>
+		nnoremap gD :YcmCompleter GoToDeclaration<CR>
+    nnoremap g* :YcmCompleter GoTo<CR>
 " }
 
 " indentLine {

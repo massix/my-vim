@@ -78,6 +78,7 @@ unset GREP_OPTIONS
 NOCOMPILPATH=${PATH}
 ENVIRONMENT_FILE=${HOME}/bin/var_env_toolchain.sh
 COMPILPATHACTIVE=0
+export LOGGER_BIN=$(which logger)
 
 function activate_compilation_path() 
 {
@@ -95,6 +96,7 @@ function deactivate_compilation_path()
 
 function bootstrap_component()
 {
+  local DBG=''
   deactivate_compilation_path
   export BRANCH_NAME=$(basename $(dirname $PWD))
   PARENT=$(dirname $PWD)
@@ -109,6 +111,8 @@ function bootstrap_component()
     return
   fi
 
+  ${LOGGER_BIN} -t "bootstrap_component()" Bootstrapping for ${BRANCH_NAME}
+
   if [[ -e "${PWD}/bootstrap.sh" ]]; then
     ./bootstrap.sh \
       --toolchain-dir=/ke/local/toolchain3-x86_64-nptl \
@@ -118,13 +122,19 @@ function bootstrap_component()
     return
   fi
 
+  if [[ "x${DEBUG}" != "x" ]]; then
+    DBG="--enable-debug"
+    echo "Debug activated (passing flag ${DBG})"
+    ${LOGGER_BIN} -t "bootstrap_component()" Using ${DBG}
+  fi
+
   activate_compilation_path
   RPS1="$RPS1:$BRANCH_NAME"
 
   take .release
   GRANDPARENT=$(dirname $(dirname $PWD))
 
-  $(dirname $PWD)/configure --with-toolchain-dir=/ke/local/toolchain3-x86_64-nptl --with-kemake-dir=${GRANDPARENT}/ke-kemake --with-common-lib=${GRANDPARENT}/ke-common/.release --with-common-include=${GRANDPARENT}/ke-common
+  $(dirname $PWD)/configure --with-toolchain-dir=/ke/local/toolchain3-x86_64-nptl --with-kemake-dir=${GRANDPARENT}/ke-kemake --with-common-lib=${GRANDPARENT}/ke-common/.release --with-common-include=${GRANDPARENT}/ke-common ${DBG}
 
   COMMON_INCLUDE=$(cat Makefile | grep 'COMMON_INCLUDE' | cut -d ' ' -f 3)
   echo "Common include : ${COMMON_INCLUDE}"
@@ -325,3 +335,5 @@ function sw_release()
 
 export EDITOR=vim
 source ~/minion/add_to_your_profile
+
+zstyle ":completion:*:commands" rehash 1
