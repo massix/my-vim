@@ -336,4 +336,24 @@ function sw_release()
 export EDITOR=vim
 source ~/minion/add_to_your_profile
 
+
+# Do not trust ZSH cache for completion
 zstyle ":completion:*:commands" rehash 1
+
+# Some useful aliases
+alias -s      c=g${EDITOR}
+alias -s      h=g${EDITOR}
+alias -s     cc=g${EDITOR}
+alias -s     hh=g${EDITOR}
+alias -s     js=g${EDITOR}
+alias -s     am=g${EDITOR}
+alias -s     in=g${EDITOR}
+alias -s    ini=g${EDITOR}
+alias -s    cpp=g${EDITOR}
+alias -s    hpp=g${EDITOR}
+alias -s    hxx=g${EDITOR}
+alias -s    xml=g${EDITOR}
+alias -s    txt=g${EDITOR}
+alias -s   conf=g${EDITOR}
+alias -s   json=g${EDITOR}
+
