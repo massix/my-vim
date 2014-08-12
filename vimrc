@@ -43,7 +43,6 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-sensible'
-"Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'sickill/vim-monokai.git'
@@ -51,12 +50,14 @@ Bundle 'kshenoy/vim-signature.git'
 Bundle 'tpope/vim-vinegar.git'
 Bundle 'rking/ag.vim.git'
 Bundle 'programble/itchy.vim.git'
-"Bundle 'mikewest/vimroom.git'
-"Bundle 'vim-scripts/a.vim.git'
 Bundle 'octol/vim-cpp-enhanced-highlight.git'
 Bundle 'osyo-manga/vim-over.git'
+Bundle 'gcmt/taboo.vim.git'
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- "
+"Bundle 'ludovicchabant/vim-lawrencium'
+"Bundle 'mikewest/vimroom.git'
+"Bundle 'vim-scripts/a.vim.git'
 "Bundle 'Yggdroot/indentLine.git'
 "Bundle 'L9'
 "Bundle 'SirVer/ultisnips.git'
@@ -160,6 +161,8 @@ endfunction
   nnoremap <leader>a :tabprev<CR>
   nnoremap <leader>w :tabclose<CR>
   nnoremap <leader>e :tabe 
+  nnoremap <leader>r :TabooRename 
+  nnoremap <leader>R :TabooReset<CR>
   
 
 	iab #i <C-R>=SmartInclude()<CR>
@@ -228,7 +231,7 @@ endfunction
 	"let g:UltiSnipsJumpForwardTrigger="<tab>"
 	"let g:UltiSnipsListSnippets="<c-e>"
 
-	"let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+	"let g:UltiSnipsSnippetDirectories=["UltiSnips"]autocmd BufEnter * setlocal bufhidden=delete autocmd BufEnter * setlocal bufhidden=delete 
 
 	" Use the followings if the function doesn't work properly
 	"let g:UltiSnipsExpandTrigger="<c-j>"
@@ -245,5 +248,6 @@ endfunction
 " Fugitive config {
 	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
   autocmd BufReadPost */notes/*.txt set ft=markdown      " Automatically set markdown for minion notes
+  autocmd BufEnter * setlocal bufhidden=delete 
 " }
 
