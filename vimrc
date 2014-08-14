@@ -53,6 +53,7 @@ Bundle 'programble/itchy.vim.git'
 Bundle 'octol/vim-cpp-enhanced-highlight.git'
 Bundle 'osyo-manga/vim-over.git'
 Bundle 'gcmt/taboo.vim.git'
+"Bundle 'scrooloose/nerdtree.git'
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- "
 "Bundle 'ludovicchabant/vim-lawrencium'
@@ -64,7 +65,6 @@ Bundle 'gcmt/taboo.vim.git'
 "Bundle 'honza/vim-snippets.git'
 "Bundle 'scrooloose/syntastic'
 "Bundle 'airblade/vim-gitgutter.git'
-"Bundle 'scrooloose/nerdtree'
 
 
 filetype plugin indent on
@@ -136,7 +136,7 @@ endfunction
 
 " NerdTree stuff {
 	"let NERDChristmasTree = 1
-	"let NERDTreeChDirMode = 2
+  "let NERDTreeChDirMode = 2
 " }
 
 " Jedi stuff {

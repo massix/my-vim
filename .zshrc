@@ -85,6 +85,7 @@ export EDITOR=vim
 
 # Do not trust ZSH cache for completion
 zstyle ":completion:*:commands" rehash 1
+zstyle ":completion:*" verbose yes
 
 # Some useful aliases
 alias -s      c=g${EDITOR}
