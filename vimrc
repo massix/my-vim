@@ -160,10 +160,10 @@ endfunction
   nnoremap <leader>d :tabnext<CR>
   nnoremap <leader>a :tabprev<CR>
   nnoremap <leader>w :tabclose<CR>
-  nnoremap <leader>e :tabe 
-  nnoremap <leader>r :TabooRename 
+  nnoremap <leader>e :tabe
+  nnoremap <leader>r :TabooRename
   nnoremap <leader>R :TabooReset<CR>
-  
+
 
 	iab #i <C-R>=SmartInclude()<CR>
 " }
@@ -231,7 +231,7 @@ endfunction
 	"let g:UltiSnipsJumpForwardTrigger="<tab>"
 	"let g:UltiSnipsListSnippets="<c-e>"
 
-	"let g:UltiSnipsSnippetDirectories=["UltiSnips"]autocmd BufEnter * setlocal bufhidden=delete autocmd BufEnter * setlocal bufhidden=delete 
+	"let g:UltiSnipsSnippetDirectories=["UltiSnips"]autocmd BufEnter * setlocal bufhidden=delete autocmd BufEnter * setlocal bufhidden=delete
 
 	" Use the followings if the function doesn't work properly
 	"let g:UltiSnipsExpandTrigger="<c-j>"
@@ -242,12 +242,12 @@ endfunction
 " netrw defaults {
     let g:netrw_liststyle=3
     let g:netrw_sort_by="name"
-    
+
 "}
 
 " Fugitive config {
 	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
   autocmd BufReadPost */notes/*.txt set ft=markdown      " Automatically set markdown for minion notes
-  autocmd BufEnter * setlocal bufhidden=delete 
+  autocmd BufEnter * setlocal bufhidden=delete
 " }
 
