@@ -1,3 +1,4 @@
+" -- Settings {{{
 syntax on
 filetype off
 
@@ -28,12 +29,13 @@ set hlsearch
 set laststatus=2
 set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
 set display=lastline
-
 set rtp+=~/.vim/bundle/vundle/
+" }}}
+
 call vundle#rc()
+filetype plugin indent on
 
-
-" ------ Bundles installed through Vundle ------ "
+" ------ Bundles installed through Vundle ------ {{{
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
@@ -58,8 +60,9 @@ Bundle 'benmills/vimux.git'
 Bundle 'zhaocai/GoldenView.Vim.git'
 Bundle "jnurmine/Zenburn.git"
 Bundle "git://repo.or.cz/vcscommand.git"
+" }}}
 
-" ----- Bundles tested and removed (but handy to have'em here) ----- "
+" ----- Bundles tested and removed (but handy to have'em here) ----- {{{
 "Bundle 'ludovicchabant/vim-lawrencium'
 "Bundle 'mikewest/vimroom.git'
 "Bundle 'vim-scripts/a.vim.git'
@@ -70,29 +73,26 @@ Bundle "git://repo.or.cz/vcscommand.git"
 "Bundle 'scrooloose/syntastic'
 "Bundle 'airblade/vim-gitgutter.git'
 "Bundle 'scrooloose/nerdtree.git'
+" }}}
 
-
-filetype plugin indent on
-
-
-"" Functions have to be at the very beginning
-
-"" Better highlighting for C++ stuff
+"" Better highlighting for C++ stuff {{{
 function! EnhanceSyntax()
     syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
     hi def link cppFuncDef Special
 endfunction
+" }}}
 
-function! ToggleMouse()
+function! ToggleMouse() "{{{
     if &mouse == 'a'
         set mouse=
     else
         set mouse=a
     endif
     echon "mouse=" &mouse
-endfunction
+  endfunction
+" }}}
 
-"" Complete "#i" automatgically
+"" Complete "#i" automatgically {{{
 function! SmartInclude()
     let next = nr2char( getchar( 0 ) )
     if next == '"'
@@ -103,8 +103,9 @@ function! SmartInclude()
     endif
     return "#include <.h>\<Left>\<Left>\<Left>"
 endfunction
+" }}}
 
-"" Change the background from dark to light with a simple keymap
+"" Change the background from dark to light with a simple keymap {{{
 function! SwitchBackground()
 	if &background == 'dark'
 		set background=light
@@ -113,150 +114,9 @@ function! SwitchBackground()
 	endif
 	echon "background=" &background
 endfunction
+" }}}
 
-
-" ------ Beginning of customizations ------ "
-
-
-" Clang stuff {
-	let g:clang_complete_copen = 1
-	let g:clang_complete_auto = 1
-	let g:clang_snippets = 1
-	let g:clang_snippets_engine = 'clang_complete'
-	let g:clang_complete_macros = 1
-	let g:clang_complete_patterns = 1
-	let g:clang_close_preview = 1
-	let g:clang_user_options = ' -std=c++0x'
-	let g:clang_auto_select = 1
-" }
-
-" Syntastic stuff {
-	let g:syntastic_cpp_config_file = '.clang_complete'
-" }
-
-" JavaComplete stuff {
-	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-	autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
-" }
-
-" NerdTree stuff {
-	"let NERDChristmasTree = 1
-  "let NERDTreeChDirMode = 2
-" }
-
-" Jedi stuff {
-	let g:jedi#autocompletion_command = "<M-space>"
-" }
-
-" DScanner stuff {
-	"" These absolute paths have to be fixed for each installation if you need to
-	"" use the dscanner plugin to autocomplete the d code.
-	let g:dscanner_path = "~/dev/Dscanner/dscanner"
-	let g:dscanner_includePath = ['/usr/local/Cellar/dmd/2.061/src/phobos', '/usr/local/Cellar/dmd/2.061/druntime/import']
-" }
-
-" Custom mappings {
-	nmap <leader>h :nohl<CR>
-	"nmap <leader>t :NERDTreeToggle<CR>
-	nmap <leader>m :call ToggleMouse()<CR>
-	nmap <leader>s :source ~/.vimrc<CR>
-	nmap <leader>b :call SwitchBackground()<CR>
-	nmap <leader>n :NumbersToggle<CR>
-  nnoremap <leader>d :tabnext<CR>
-  nnoremap <leader>a :tabprev<CR>
-  nnoremap <leader>w :tabclose<CR>
-  nnoremap <leader>e :tabe
-  nnoremap <leader>r :TabooRename
-  nnoremap <leader>R :TabooReset<CR>
-
-
-	iab #i <C-R>=SmartInclude()<CR>
-" }
-
-
-" Random stuff {
-	autocmd Syntax cpp call EnhanceSyntax()
-
-	augroup filetype
-		au! BufRead,BufNewFile *.proto setfiletype proto
-	augroup end
-" }
-
-" YCM {
-		let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/cpp/ycm/*', './*']
-		let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-		let g:ycm_autoclose_preview_window_after_completion = 1
-		let g:ycm_autoclose_preview_window_after_insertion = 1
-
-		nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-		nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-		nnoremap gd :YcmCompleter GoToDefinition<CR>
-		nnoremap gD :YcmCompleter GoToDeclaration<CR>
-    nnoremap g* :YcmCompleter GoTo<CR>
-" }
-
-" indentLine {
-		"let g:indentLine_faster = 1
-		"inoremap <Leader>si <Esc>:IndentLinesToggle<CR>i
-		"nnoremap <Leader>si :IndentLinesToggle<CR>
-" }
-
-" EasyMotion {
-	"map / <Plug>(easymotion-sn)
-	"omap / <Plug>(easymotion-tn)
-	"map n <Plug>(easymotion-next)
-	"map N <Plug>(easymotion-prev)
-	"nmap s <Plug>(easymotion-s2)
-	"nmap t <Plug>(easymotion-t2)
-" }
-
-" CtrlP {
-	nmap <leader>T :CtrlPMixed<CR>
-" }
-
-" I need to remap these in order to avoid conflicts with YCM
-" UltiSnips {
-
-	"function! g:UltiSnips_Complete()
-		"call UltiSnips#ExpandSnippet()
-		"if g:ulti_expand_res == 0
-			"if pumvisible()
-				"return "\<C-n>"
-			"else
-				"call UltiSnips#JumpForwards()
-				"if g:ulti_jump_forwards_res == 0
-					"return "\<TAB>"
-				"endif
-			"endif
-		"endif
-		"return ""
-	"endfunction
-
-	"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-	"let g:UltiSnipsJumpForwardTrigger="<tab>"
-	"let g:UltiSnipsListSnippets="<c-e>"
-
-	"let g:UltiSnipsSnippetDirectories=["UltiSnips"]autocmd BufEnter * setlocal bufhidden=delete autocmd BufEnter * setlocal bufhidden=delete
-
-	" Use the followings if the function doesn't work properly
-	"let g:UltiSnipsExpandTrigger="<c-j>"
-	"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-	"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" }
-
-" netrw defaults {
-    let g:netrw_liststyle=3
-    let g:netrw_sort_by="name"
-
-"}
-
-" Fugitive config {
-	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
-  autocmd BufReadPost */notes/*.txt set ft=markdown      " Automatically set markdown for minion notes
-  autocmd BufEnter * setlocal bufhidden=delete
-" }
-
-" Shell ------------------------------------------------------------------- {{{
+" Shell {{{
 
 function! s:ExecuteInShell(command) " {{{
     let command = join(map(split(a:command), 'expand(v:val)'))
@@ -273,7 +133,109 @@ function! s:ExecuteInShell(command) " {{{
     echo 'Shell command ' . command . ' executed.'
 endfunction " }}}
 command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
-nnoremap <leader>! :Shell 
 
+" }}}
+
+" ------ Beginning of customizations ------ "
+
+" Clang {{{
+  let g:clang_complete_copen = 1
+  let g:clang_complete_auto = 1
+  let g:clang_snippets = 1
+  let g:clang_snippets_engine = 'clang_complete'
+  let g:clang_complete_macros = 1
+  let g:clang_complete_patterns = 1
+  let g:clang_close_preview = 1
+  let g:clang_user_options = ' -std=c++0x'
+	let g:clang_auto_select = 1
+" }}}
+
+" Syntastic {{{
+	let g:syntastic_cpp_config_file = '.clang_complete'
+" }}}
+
+" Jedi {{{
+	let g:jedi#autocompletion_command = "<M-space>"
+" }}}
+
+" DScanner {{{
+	"" These absolute paths have to be fixed for each installation if you need to
+	"" use the dscanner plugin to autocomplete the d code.
+	let g:dscanner_path = "~/dev/Dscanner/dscanner"
+	let g:dscanner_includePath = ['/usr/local/Cellar/dmd/2.061/src/phobos', '/usr/local/Cellar/dmd/2.061/druntime/import']
+" }}}
+"
+" YCM {{{
+		let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/cpp/ycm/*', './*']
+		let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+		let g:ycm_autoclose_preview_window_after_completion = 1
+		let g:ycm_autoclose_preview_window_after_insertion = 1
+" }}}
+
+" netrw {{{
+    let g:netrw_liststyle=3
+    let g:netrw_sort_by="name"
+"}}}
+
+" Custom mappings {{{
+
+  " Random things
+	nnoremap <leader>h :nohl<CR>
+	nnoremap <leader>m :call ToggleMouse()<CR>
+	nnoremap <leader>s :source ~/.vimrc<CR>
+	nnoremap <leader>b :call SwitchBackground()<CR>
+	nnoremap <leader>n :NumbersToggle<CR>
+
+  " Tabs managements
+  nnoremap <leader>d :tabnext<CR>
+  nnoremap <leader>a :tabprev<CR>
+  nnoremap <leader>w :tabclose<CR>
+  nnoremap <leader>e :tabe
+  nnoremap <leader>r :TabooRename
+  nnoremap <leader>R :TabooReset<CR>
+
+  " YouCompleteMe
+  nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+  nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+  nnoremap gd :YcmCompleter GoToDefinition<CR>
+  nnoremap gD :YcmCompleter GoToDeclaration<CR>
+  nnoremap g* :YcmCompleter GoTo<CR>
+
+  " CtrlP plugin
+	nnoremap <leader>pm :CtrlPMixed<CR>
+  nnoremap <leader>pb :CtrlPBuffer<CR>
+
+  " Shell function
+  nnoremap <leader>! :Shell 
+
+	"nnoremap <leader>t :NERDTreeToggle<CR>
+" }}}
+
+" Auto commands {{{
+	autocmd Syntax cpp call EnhanceSyntax()
+
+  " Protobuf
+	augroup filetype
+		au! BufRead,BufNewFile *.proto setfiletype proto
+	augroup end
+
+  " Folds in vim files
+  augroup filetype_vim
+  autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+  augroup END
+
+  " Java autocomplete
+	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+	autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
+
+  " Automatically delete hidden buffers
+  "autocmd BufEnter * setlocal bufhidden=delete 
+
+  " Hide fugitive buffers
+	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
+
+  " Use markdown for minion notes
+  autocmd BufReadPost */notes/*.txt set ft=markdown      " Automatically set markdown for minion notes
 " }}}
 
