@@ -179,6 +179,8 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 
 " Custom mappings {{{
 
+  nnoremap <Space> za
+
   " Random things
 	nnoremap <leader>h :nohl<CR>
 	nnoremap <leader>m :call ToggleMouse()<CR>
@@ -208,7 +210,12 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   " Shell function
   nnoremap <leader>! :Shell 
 
-	"nnoremap <leader>t :NERDTreeToggle<CR>
+  " Grep with ag for the word under cursor
+  nnoremap <leader>ag :Ag 
+  nnoremap <leader>gw viw"gy:Ag <C-R>g<CR>
+
+  " Same as before, but limit the search to current file (occur)
+  nnoremap <leader>go viw"gy:Ag <C-R>g %<CR>
 " }}}
 
 " Auto commands {{{
