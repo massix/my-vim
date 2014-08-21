@@ -104,3 +104,6 @@ alias -s    txt=g${EDITOR}
 alias -s   conf=g${EDITOR}
 alias -s   json=g${EDITOR}
 
+alias tmux='tmux -2'
+
+fortune

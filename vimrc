@@ -1,6 +1,7 @@
 syntax on
 filetype off
 
+set t_Co=256
 set modelines=5
 set ts=2
 set sw=2
@@ -53,7 +54,10 @@ Bundle 'programble/itchy.vim.git'
 Bundle 'octol/vim-cpp-enhanced-highlight.git'
 Bundle 'osyo-manga/vim-over.git'
 Bundle 'gcmt/taboo.vim.git'
-"Bundle 'scrooloose/nerdtree.git'
+Bundle 'benmills/vimux.git'
+Bundle 'zhaocai/GoldenView.Vim.git'
+Bundle "jnurmine/Zenburn.git"
+Bundle "git://repo.or.cz/vcscommand.git"
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- "
 "Bundle 'ludovicchabant/vim-lawrencium'
@@ -65,6 +69,7 @@ Bundle 'gcmt/taboo.vim.git'
 "Bundle 'honza/vim-snippets.git'
 "Bundle 'scrooloose/syntastic'
 "Bundle 'airblade/vim-gitgutter.git'
+"Bundle 'scrooloose/nerdtree.git'
 
 
 filetype plugin indent on
@@ -250,4 +255,25 @@ endfunction
   autocmd BufReadPost */notes/*.txt set ft=markdown      " Automatically set markdown for minion notes
   autocmd BufEnter * setlocal bufhidden=delete
 " }
+
+" Shell ------------------------------------------------------------------- {{{
+
+function! s:ExecuteInShell(command) " {{{
+    let command = join(map(split(a:command), 'expand(v:val)'))
+    let winnr = bufwinnr('^' . command . '$')
+    silent! execute  winnr < 0 ? 'botright vnew ' . fnameescape(command) : winnr . 'wincmd w'
+    setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap nonumber
+    echo 'Execute ' . command . '...'
+    silent! execute 'silent %!'. command
+    silent! redraw
+    silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>:AnsiEsc<CR>'
+    silent! execute 'nnoremap <silent> <buffer> q :q<CR>'
+    silent! execute 'AnsiEsc'
+    echo 'Shell command ' . command . ' executed.'
+endfunction " }}}
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+nnoremap <leader>! :Shell 
+
+" }}}
 
