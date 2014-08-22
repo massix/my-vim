@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="gentoo"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="mgengarelli"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
