@@ -177,6 +177,12 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
     let g:netrw_sort_by="name"
 "}}}
 
+" Silver Searcher (AG) {{{
+  let g:aghighlight=1                      " Highlight the search terms after searching
+  let g:agprg="ag --column --smart-case"   " Always use the smart-case
+
+" }}}
+
 " Custom mappings {{{
 
   nnoremap <Space> za
@@ -215,7 +221,7 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   nnoremap <leader>gw viw"gy:Ag <C-R>g<CR>
 
   " Same as before, but limit the search to current file (occur)
-  nnoremap <leader>go viw"gy:Ag <C-R>g %<CR>
+  nnoremap <leader>go viw"gy:Ag <C-R>g % ~/vim-compile.zsh<CR>
 " }}}
 
 " Auto commands {{{
