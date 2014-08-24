@@ -2,3 +2,4 @@
 *.un~
 bundle/**
 !bundle/vundle
+.netrwhist
