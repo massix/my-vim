@@ -60,6 +60,7 @@ Bundle 'benmills/vimux.git'
 Bundle 'zhaocai/GoldenView.Vim.git'
 Bundle "jnurmine/Zenburn.git"
 Bundle "git://repo.or.cz/vcscommand.git"
+Bundle "chrisbra/NrrwRgn.git"
 " }}}
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- {{{
@@ -186,6 +187,10 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 " Custom mappings {{{
 
   nnoremap <Space> za
+
+	" vimrc managements
+	nnoremap <leader>sv :source $MYVIMRC<CR>
+	nnoremap <leader>ev :vsp $MYVIMRC<CR>
 
   " Random things
 	nnoremap <leader>h :nohl<CR>
