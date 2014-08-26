@@ -61,6 +61,8 @@ Bundle 'zhaocai/GoldenView.Vim.git'
 Bundle "jnurmine/Zenburn.git"
 Bundle "git://repo.or.cz/vcscommand.git"
 Bundle "chrisbra/NrrwRgn.git"
+Bundle "vim-scripts/vimwiki.git"
+Bundle "mhinz/vim-signify.git"
 " }}}
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- {{{
@@ -172,6 +174,25 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 		let g:ycm_autoclose_preview_window_after_completion = 1
 		let g:ycm_autoclose_preview_window_after_insertion = 1
 " }}}
+"
+" vimwiki {{{
+
+    " My main wiki hosted on Dropbox
+    let dx_wiki={}
+    let dx_wiki.path = '~/Dropbox/vimwiki'
+    let dx_wiki.path_html = '~/Dropbox/vimwiki_html'
+    let dx_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'zsh' : 'zsh'}
+    let dx_wiki.diary_rel_path = 'blog/'
+    let dx_wiki.diary_index = 'diary'
+
+    " I also happen to have a local wiki that is machine-dependent
+    let prs_wiki={}
+    let prs_wiki.path = '~/vimwiki'
+    let prs_wiki.path_html = '~/vimwiki_html'
+
+    " Set all the wikis.
+    let g:vimwiki_list = [dx_wiki, prs_wiki]
+"}}}
 
 " netrw {{{
     let g:netrw_liststyle=3
