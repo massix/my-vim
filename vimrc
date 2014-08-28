@@ -162,22 +162,13 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   let g:airline#extensions#tabline#show_tab_nr = 1
   let g:airline#extensions#tmuxline#enabled = 1
   let g:airline#extensions#nrrwrgn#enabled = 1
-  "let g:airline#extensions#bufferline#enabled = 1
+  let g:airline#extensions#bufferline#enabled = 1
   let g:airline#extensions#branch#use_vcscommand = 1
   let g:airline#extensions#syntastic#enabled = 1
   let g:airline#extensions#tagbar#enabled = 1
   let g:airline#extensions#hunks#enabled = 1
   let g:airline#extensions#ctrlp#color_template = 'visual'
   let g:airline#extensions#ctrlp#show_adjacent_modes = 1
-
-  " Fonts
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
 
   " Random
   let g:airline_theme = 'base16'
