@@ -107,3 +107,4 @@ alias -s   json=g${EDITOR}
 alias tmux='tmux -2'
 
 fortune
+unsetopt auto_name_dirs

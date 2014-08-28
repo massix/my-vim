@@ -63,6 +63,8 @@ Bundle "git://repo.or.cz/vcscommand.git"
 Bundle "chrisbra/NrrwRgn.git"
 Bundle "vim-scripts/vimwiki.git"
 Bundle "mhinz/vim-signify.git"
+Bundle "edkolev/promptline.vim.git"
+Bundle "edkolev/tmuxline.vim.git"
 " }}}
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- {{{
@@ -153,6 +155,36 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 	let g:clang_auto_select = 1
 " }}}
 
+" Airline {{{
+  " Extensions
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_buffers = 1
+  let g:airline#extensions#tabline#show_tab_nr = 1
+  let g:airline#extensions#tmuxline#enabled = 1
+  let g:airline#extensions#nrrwrgn#enabled = 1
+  "let g:airline#extensions#bufferline#enabled = 1
+  let g:airline#extensions#branch#use_vcscommand = 1
+  let g:airline#extensions#syntastic#enabled = 1
+  let g:airline#extensions#tagbar#enabled = 1
+  let g:airline#extensions#hunks#enabled = 1
+  let g:airline#extensions#ctrlp#color_template = 'visual'
+  let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+
+  " Fonts
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+
+  " Random
+  let g:airline_theme = 'base16'
+  let g:airline_inactive_collapse = 0
+  let g:airline_powerline_fonts = 1
+" }}}
+
 " Syntastic {{{
 	let g:syntastic_cpp_config_file = '.clang_complete'
 " }}}
@@ -240,10 +272,10 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   nnoremap <leader>pb :CtrlPBuffer<CR>
 
   " Shell function
-  nnoremap <leader>! :Shell 
+  nnoremap <leader>! :Shell<space>
 
   " Grep with ag for the word under cursor
-  nnoremap <leader>ag :Ag 
+  nnoremap <leader>ag :Ag<Space>
   nnoremap <leader>gw viw"gy:Ag <C-R>g<CR>
 
   " Same as before, but limit the search to current file (occur)
@@ -269,7 +301,7 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 	autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 
   " Automatically delete hidden buffers
-  "autocmd BufEnter * setlocal bufhidden=delete 
+  "autocmd BufEnter * setlocal bufhidden=delete
 
   " Hide fugitive buffers
 	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
