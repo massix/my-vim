@@ -30,6 +30,8 @@ set laststatus=2
 set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
 set display=lastline
 set rtp+=~/.vim/bundle/vundle/
+set conceallevel=2
+set concealcursor=vin
 " }}}
 
 call vundle#rc()
@@ -65,6 +67,8 @@ Bundle "vim-scripts/vimwiki.git"
 Bundle "mhinz/vim-signify.git"
 Bundle "edkolev/promptline.vim.git"
 Bundle "edkolev/tmuxline.vim.git"
+Bundle "godlygeek/csapprox.git"
+Bundle "fabi1cazenave/suckless.vim.git"
 " }}}
 
 " ----- Bundles tested and removed (but handy to have'em here) ----- {{{
@@ -78,6 +82,7 @@ Bundle "edkolev/tmuxline.vim.git"
 "Bundle 'scrooloose/syntastic'
 "Bundle 'airblade/vim-gitgutter.git'
 "Bundle 'scrooloose/nerdtree.git'
+"Bundle "thetoast/diff-fold.git"
 " }}}
 
 "" Better highlighting for C++ stuff {{{
@@ -163,7 +168,8 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   let g:airline#extensions#tmuxline#enabled = 1
   let g:airline#extensions#nrrwrgn#enabled = 1
   let g:airline#extensions#bufferline#enabled = 1
-  let g:airline#extensions#branch#use_vcscommand = 1
+  let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#branch#use_vcscommand = 0
   let g:airline#extensions#syntastic#enabled = 1
   let g:airline#extensions#tagbar#enabled = 1
   let g:airline#extensions#hunks#enabled = 1
@@ -194,8 +200,16 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 " YCM {{{
 		let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/cpp/ycm/*', './*']
 		let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-		let g:ycm_autoclose_preview_window_after_completion = 1
-		let g:ycm_autoclose_preview_window_after_insertion = 1
+		let g:ycm_autoclose_preview_window_after_completion = 0
+		let g:ycm_autoclose_preview_window_after_insertion = 0
+    let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_add_preview_to_completeopt = 1
+    let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+    let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<S-Enter>']
+    let g:ycm_key_invoke_completion = '<C-Space>'
+    let g:ycm_key_detailed_diagnostics = '<leader>yd'
+    let g:ycm_confirm_extra_conf = 0
+    let g:ycm_goto_buffer_command = 'vertical-split'
 " }}}
 "
 " vimwiki {{{
@@ -226,6 +240,17 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   let g:aghighlight=1                      " Highlight the search terms after searching
   let g:agprg="ag --column --smart-case"   " Always use the smart-case
 
+" }}}
+
+" CtrlP {{{
+  "let g:ctrlp_user_command = {
+        "\   'types' : {
+        "\     1: ['.git', 'cd %s && git ls-files'],
+        "\     2: ['.hg', 'hg --cwd %s locate -I .'],
+        "\     3: ['.bzr', 'bzr ls -R'],
+        "\   },
+        "\   'fallback': 'find %s -type f',
+        "\ }
 " }}}
 
 " Custom mappings {{{
@@ -271,6 +296,23 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 
   " Same as before, but limit the search to current file (occur)
   nnoremap <leader>go viw"gy:Ag <C-R>g % ~/vim-compile.zsh<CR>
+
+  " Grep with ag for the word under cursor and add the results to the current
+  " window
+  nnoremap <leader>aga :AgAdd<Space>
+  nnoremap <leader>gwa viw"gy:AgAdd <C-R>g<CR>
+
+  " Same as before, but limit the search to current file (occur) and add the
+  " results to the current window
+  nnoremap <leader>goa viw"gy:AgAdd <C-R>g % ~/vim-compile.zsh<CR>
+
+  " Cursor is in a class names, it will give the list of all the functions in
+  " the file
+  nnoremap <leader>gc viw"gy:Ag <C-R>g:: % ~/vim-compile.zsh<CR>
+
+  " Cursor is in a class names, it will give the list of all the functions in
+  " the file and add the results to the current window
+  nnoremap <leader>gca viw"gy:AgAdd <C-R>g:: % ~/vim-compile.zsh<CR>
 " }}}
 
 " Auto commands {{{
