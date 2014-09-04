@@ -105,6 +105,7 @@ alias -s   conf=g${EDITOR}
 alias -s   json=g${EDITOR}
 
 alias tmux='tmux -2'
+alias woman='man' # Stop being sexist.
 
 fortune
 unsetopt auto_name_dirs

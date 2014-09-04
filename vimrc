@@ -37,52 +37,53 @@ set concealcursor=vin
 call vundle#rc()
 filetype plugin indent on
 
-" ------ Bundles installed through Vundle ------ {{{
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'bling/vim-airline.git'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-sensible'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'Raimondi/delimitMate.git'
-Bundle 'sickill/vim-monokai.git'
-Bundle 'kshenoy/vim-signature.git'
-Bundle 'tpope/vim-vinegar.git'
-Bundle 'rking/ag.vim.git'
-Bundle 'programble/itchy.vim.git'
-Bundle 'octol/vim-cpp-enhanced-highlight.git'
-Bundle 'osyo-manga/vim-over.git'
-Bundle 'gcmt/taboo.vim.git'
-Bundle 'benmills/vimux.git'
-Bundle 'zhaocai/GoldenView.Vim.git'
-Bundle "jnurmine/Zenburn.git"
-Bundle "git://repo.or.cz/vcscommand.git"
-Bundle "chrisbra/NrrwRgn.git"
-Bundle "vim-scripts/vimwiki.git"
-Bundle "mhinz/vim-signify.git"
-Bundle "edkolev/promptline.vim.git"
-Bundle "edkolev/tmuxline.vim.git"
-Bundle "godlygeek/csapprox.git"
-Bundle "fabi1cazenave/suckless.vim.git"
+" ------ Plugins installed through Vundle ------ {{{
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline.git'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-sensible'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'Raimondi/delimitMate.git'
+Plugin 'sickill/vim-monokai.git'
+Plugin 'kshenoy/vim-signature.git'
+Plugin 'tpope/vim-vinegar.git'
+Plugin 'rking/ag.vim.git'
+Plugin 'programble/itchy.vim.git'
+Plugin 'octol/vim-cpp-enhanced-highlight.git'
+Plugin 'osyo-manga/vim-over.git'
+Plugin 'gcmt/taboo.vim.git'
+Plugin 'benmills/vimux.git'
+Plugin 'zhaocai/GoldenView.Vim.git'
+Plugin 'jnurmine/Zenburn.git'
+Plugin 'git://repo.or.cz/vcscommand.git'
+Plugin 'chrisbra/NrrwRgn.git'
+Plugin 'vim-scripts/vimwiki.git'
+Plugin 'mhinz/vim-signify.git'
+Plugin 'edkolev/promptline.vim.git'
+Plugin 'edkolev/tmuxline.vim.git'
+Plugin 'godlygeek/csapprox.git'
+Plugin 'fabi1cazenave/suckless.vim.git'
+Plugin 'inside/vim-search-pulse.git'
 " }}}
 
-" ----- Bundles tested and removed (but handy to have'em here) ----- {{{
-"Bundle 'ludovicchabant/vim-lawrencium'
-"Bundle 'mikewest/vimroom.git'
-"Bundle 'vim-scripts/a.vim.git'
-"Bundle 'Yggdroot/indentLine.git'
-"Bundle 'L9'
-"Bundle 'SirVer/ultisnips.git'
-"Bundle 'honza/vim-snippets.git'
-"Bundle 'scrooloose/syntastic'
-"Bundle 'airblade/vim-gitgutter.git'
-"Bundle 'scrooloose/nerdtree.git'
-"Bundle "thetoast/diff-fold.git"
+" ----- Plugins tested and removed (but handy to have'em here) ----- {{{
+"Plugin 'ludovicchabant/vim-lawrencium'
+"Plugin 'mikewest/vimroom.git'
+"Plugin 'vim-scripts/a.vim.git'
+"Plugin 'Yggdroot/indentLine.git'
+"Plugin 'L9'
+"Plugin 'SirVer/ultisnips.git'
+"Plugin 'honza/vim-snippets.git'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'airblade/vim-gitgutter.git'
+"Plugin 'scrooloose/nerdtree.git'
+"Plugin 'thetoast/diff-fold.git'
 " }}}
 
 "" Better highlighting for C++ stuff {{{
@@ -253,6 +254,12 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
         "\ }
 " }}}
 
+" Pulse {{{
+  let g:vim_search_pulse_mode = 'pattern'
+  let g:vim_search_pulse_color_list = [22, 28, 34, 40, 46]
+  let g:vim_search_pulse_duration = 400
+" }}}
+
 " Custom mappings {{{
 
   nnoremap <Space> za
@@ -313,6 +320,13 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   " Cursor is in a class names, it will give the list of all the functions in
   " the file and add the results to the current window
   nnoremap <leader>gca viw"gy:AgAdd <C-R>g:: % ~/vim-compile.zsh<CR>
+
+  " Pulse
+  nmap n n<Plug>Pulse
+  nmap N N<Plug>Pulse
+  nmap * *<Plug>Pulse
+  nmap # #<Plug>Pulse
+  cmap <enter> <Plug>PulseFirst
 " }}}
 
 " Auto commands {{{
