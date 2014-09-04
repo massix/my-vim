@@ -38,16 +38,16 @@ call vundle#rc()
 filetype plugin indent on
 
 " ------ Plugins installed through Vundle ------ {{{
-Plugin 'gmarik/vundle'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'gmarik/vundle.git'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'Lokaltog/vim-easymotion.git'
+Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'bling/vim-airline.git'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-sensible'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'myusuf3/numbers.vim.git'
+Plugin 'plasticboy/vim-markdown.git'
+Plugin 'tpope/vim-sensible.git'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'sickill/vim-monokai.git'
@@ -67,9 +67,11 @@ Plugin 'vim-scripts/vimwiki.git'
 Plugin 'mhinz/vim-signify.git'
 Plugin 'edkolev/promptline.vim.git'
 Plugin 'edkolev/tmuxline.vim.git'
-Plugin 'godlygeek/csapprox.git'
 Plugin 'fabi1cazenave/suckless.vim.git'
 Plugin 'inside/vim-search-pulse.git'
+Plugin 'flazz/vim-colorschemes.git'
+Plugin 'terryma/vim-multiple-cursors.git'
+Plugin 'bling/vim-bufferline.git'
 " }}}
 
 " ----- Plugins tested and removed (but handy to have'em here) ----- {{{
@@ -84,6 +86,7 @@ Plugin 'inside/vim-search-pulse.git'
 "Plugin 'airblade/vim-gitgutter.git'
 "Plugin 'scrooloose/nerdtree.git'
 "Plugin 'thetoast/diff-fold.git'
+"Plugin 'godlygeek/csapprox.git'
 " }}}
 
 "" Better highlighting for C++ stuff {{{
@@ -118,12 +121,16 @@ endfunction
 
 "" Change the background from dark to light with a simple keymap {{{
 function! SwitchBackground()
-	if &background == 'dark'
-		set background=light
-	else
-		set background=dark
-	endif
-	echon "background=" &background
+  if has('gui_running')
+    if &background == 'dark'
+      set background=light
+    else
+      set background=dark
+    endif
+    echon "background=" &background
+  else
+    echon "Terminal mode."
+  endif
 endfunction
 " }}}
 
@@ -178,7 +185,6 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 
   " Random
-  let g:airline_theme = 'base16'
   let g:airline_inactive_collapse = 0
   let g:airline_powerline_fonts = 1
 " }}}
@@ -272,7 +278,7 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 	nnoremap <leader>h :nohl<CR>
 	nnoremap <leader>m :call ToggleMouse()<CR>
 	nnoremap <leader>s :source ~/.vimrc<CR>
-	nnoremap <leader>b :call SwitchBackground()<CR>
+  nnoremap <leader>b :call SwitchBackground()<CR>
 	nnoremap <leader>n :NumbersToggle<CR>
 
   " Tabs managements
@@ -327,6 +333,24 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   nmap * *<Plug>Pulse
   nmap # #<Plug>Pulse
   cmap <enter> <Plug>PulseFirst
+
+  nnoremap ; :
+
+  "" Quick save files
+  nmap <leader>s :w!<CR>
+  nmap <leader>sa :wa!<CR>
+
+  nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+  nnoremap <leader>sv :so $MYVIMRC<CR>
+
+  " Useless things.. comfy to have though.
+  vnoremap <leader>" <ESC>`<i"<ESC>`>la"<ESC>
+  vnoremap <leader>' <ESC>`<i'<ESC>`>la'<ESC>
+  vnoremap <leader>( <ESC>`<i(<ESC>`>la)<ESC>
+  vnoremap <leader>{ <ESC>`<i{<ESC>`>la}<ESC>
+
+  " A nice cat..
+  nnoremap <leader>cat :echo ">^.^<"<CR>
 " }}}
 
 " Auto commands {{{
