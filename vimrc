@@ -1,142 +1,142 @@
 " -- Settings {{{
-syntax on
-filetype off
+  syntax on
+  filetype off
 
-set t_Co=256
-set modelines=5
-set ts=2
-set sw=2
-set nocp
-set autoindent
-set smartindent
-set cindent
-set hlsearch
-set number
-set cursorline
-set mouse=a
-set ruler
-set showmatch
-set path=$PWD/**
-set showcmd
-set wildmode=list:full
-set display=lastline
-set shiftround
-set smarttab
-set incsearch
-set ignorecase
-set smartcase
-set hlsearch
-set laststatus=2
-set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
-set display=lastline
-set rtp+=~/.vim/bundle/vundle/
-set conceallevel=2
-set concealcursor=vin
+  set t_Co=256
+  set modelines=5
+  set ts=2
+  set sw=2
+  set nocp
+  set autoindent
+  set smartindent
+  set cindent
+  set hlsearch
+  set number
+  set cursorline
+  set mouse=a
+  set ruler
+  set showmatch
+  set path=$PWD/**
+  set showcmd
+  set wildmode=list:full
+  set display=lastline
+  set shiftround
+  set smarttab
+  set incsearch
+  set ignorecase
+  set smartcase
+  set hlsearch
+  set laststatus=2
+  set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
+  set display=lastline
+  set rtp+=~/.vim/bundle/vundle/
+  set conceallevel=2
+  set concealcursor=vin
 " }}}
 
 call vundle#rc()
 filetype plugin indent on
 
 " ------ Plugins installed through Vundle ------ {{{
-Plugin 'gmarik/vundle.git'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'Lokaltog/vim-easymotion.git'
-Plugin 'Valloric/YouCompleteMe.git'
-Plugin 'bling/vim-airline.git'
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'scrooloose/nerdcommenter.git'
-Plugin 'myusuf3/numbers.vim.git'
-Plugin 'plasticboy/vim-markdown.git'
-Plugin 'tpope/vim-sensible.git'
-Plugin 'kien/ctrlp.vim.git'
-Plugin 'Raimondi/delimitMate.git'
-Plugin 'sickill/vim-monokai.git'
-Plugin 'kshenoy/vim-signature.git'
-Plugin 'tpope/vim-vinegar.git'
-Plugin 'rking/ag.vim.git'
-Plugin 'programble/itchy.vim.git'
-Plugin 'octol/vim-cpp-enhanced-highlight.git'
-Plugin 'osyo-manga/vim-over.git'
-Plugin 'gcmt/taboo.vim.git'
-Plugin 'benmills/vimux.git'
-Plugin 'zhaocai/GoldenView.Vim.git'
-Plugin 'jnurmine/Zenburn.git'
-Plugin 'git://repo.or.cz/vcscommand.git'
-Plugin 'chrisbra/NrrwRgn.git'
-Plugin 'vim-scripts/vimwiki.git'
-Plugin 'mhinz/vim-signify.git'
-Plugin 'edkolev/promptline.vim.git'
-Plugin 'edkolev/tmuxline.vim.git'
-Plugin 'fabi1cazenave/suckless.vim.git'
-Plugin 'inside/vim-search-pulse.git'
-Plugin 'flazz/vim-colorschemes.git'
-Plugin 'terryma/vim-multiple-cursors.git'
-Plugin 'bling/vim-bufferline.git'
+  Plugin 'gmarik/vundle.git'
+  Plugin 'tpope/vim-fugitive.git'
+  Plugin 'Lokaltog/vim-easymotion.git'
+  Plugin 'Valloric/YouCompleteMe.git'
+  Plugin 'bling/vim-airline.git'
+  Plugin 'altercation/vim-colors-solarized.git'
+  Plugin 'scrooloose/nerdcommenter.git'
+  Plugin 'myusuf3/numbers.vim.git'
+  Plugin 'plasticboy/vim-markdown.git'
+  Plugin 'tpope/vim-sensible.git'
+  Plugin 'kien/ctrlp.vim.git'
+  Plugin 'Raimondi/delimitMate.git'
+  Plugin 'sickill/vim-monokai.git'
+  Plugin 'kshenoy/vim-signature.git'
+  Plugin 'tpope/vim-vinegar.git'
+  Plugin 'rking/ag.vim.git'
+  Plugin 'programble/itchy.vim.git'
+  Plugin 'octol/vim-cpp-enhanced-highlight.git'
+  Plugin 'osyo-manga/vim-over.git'
+  Plugin 'gcmt/taboo.vim.git'
+  Plugin 'benmills/vimux.git'
+  Plugin 'zhaocai/GoldenView.Vim.git'
+  Plugin 'jnurmine/Zenburn.git'
+  Plugin 'git://repo.or.cz/vcscommand.git'
+  Plugin 'chrisbra/NrrwRgn.git'
+  Plugin 'vim-scripts/vimwiki.git'
+  Plugin 'mhinz/vim-signify.git'
+  Plugin 'edkolev/promptline.vim.git'
+  Plugin 'edkolev/tmuxline.vim.git'
+  Plugin 'fabi1cazenave/suckless.vim.git'
+  Plugin 'inside/vim-search-pulse.git'
+  Plugin 'flazz/vim-colorschemes.git'
+  Plugin 'terryma/vim-multiple-cursors.git'
+  Plugin 'bling/vim-bufferline.git'
 " }}}
 
 " ----- Plugins tested and removed (but handy to have'em here) ----- {{{
-"Plugin 'ludovicchabant/vim-lawrencium'
-"Plugin 'mikewest/vimroom.git'
-"Plugin 'vim-scripts/a.vim.git'
-"Plugin 'Yggdroot/indentLine.git'
-"Plugin 'L9'
-"Plugin 'SirVer/ultisnips.git'
-"Plugin 'honza/vim-snippets.git'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'airblade/vim-gitgutter.git'
-"Plugin 'scrooloose/nerdtree.git'
-"Plugin 'thetoast/diff-fold.git'
-"Plugin 'godlygeek/csapprox.git'
+  "Plugin 'ludovicchabant/vim-lawrencium'
+  "Plugin 'mikewest/vimroom.git'
+  "Plugin 'vim-scripts/a.vim.git'
+  "Plugin 'Yggdroot/indentLine.git'
+  "Plugin 'L9'
+  "Plugin 'SirVer/ultisnips.git'
+  "Plugin 'honza/vim-snippets.git'
+  "Plugin 'scrooloose/syntastic'
+  "Plugin 'airblade/vim-gitgutter.git'
+  "Plugin 'scrooloose/nerdtree.git'
+  "Plugin 'thetoast/diff-fold.git'
+  "Plugin 'godlygeek/csapprox.git'
 " }}}
 
 "" Better highlighting for C++ stuff {{{
-function! EnhanceSyntax()
+  function! EnhanceSyntax()
     syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
     hi def link cppFuncDef Special
-endfunction
+  endfunction
 " }}}
 
-function! ToggleMouse() "{{{
+" ToggleMouse {{{
+  function! ToggleMouse()
     if &mouse == 'a'
-        set mouse=
+      set mouse=
     else
-        set mouse=a
+      set mouse=a
     endif
     echon "mouse=" &mouse
   endfunction
 " }}}
 
 "" Complete "#i" automatgically {{{
-function! SmartInclude()
+  function! SmartInclude()
     let next = nr2char( getchar( 0 ) )
     if next == '"'
-        return "#include \".hpp\"\<Left>\<Left>\<Left>\<Left>\<Left>"
+      return "#include \".hpp\"\<Left>\<Left>\<Left>\<Left>\<Left>"
     endif
     if next == '<'
-        return "#include <>\<Left>"
+      return "#include <>\<Left>"
     endif
     return "#include <.h>\<Left>\<Left>\<Left>"
-endfunction
+  endfunction
 " }}}
 
 "" Change the background from dark to light with a simple keymap {{{
-function! SwitchBackground()
-  if has('gui_running')
-    if &background == 'dark'
-      set background=light
+  function! SwitchBackground()
+    if has('gui_running')
+      if &background == 'dark'
+        set background=light
+      else
+        set background=dark
+      endif
+      echon "background=" &background
     else
-      set background=dark
+      echon "Terminal mode."
     endif
-    echon "background=" &background
-  else
-    echon "Terminal mode."
-  endif
-endfunction
+  endfunction
 " }}}
 
 " Shell {{{
-
-function! s:ExecuteInShell(command) " {{{
+  function! s:ExecuteInShell(command)
     let command = join(map(split(a:command), 'expand(v:val)'))
     let winnr = bufwinnr('^' . command . '$')
     silent! execute  winnr < 0 ? 'botright vnew ' . fnameescape(command) : winnr . 'wincmd w'
@@ -149,8 +149,8 @@ function! s:ExecuteInShell(command) " {{{
     silent! execute 'nnoremap <silent> <buffer> q :q<CR>'
     silent! execute 'AnsiEsc'
     echo 'Shell command ' . command . ' executed.'
-endfunction " }}}
-command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+  endfunction
+  command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 
 " }}}
 
@@ -165,7 +165,7 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   let g:clang_complete_patterns = 1
   let g:clang_close_preview = 1
   let g:clang_user_options = ' -std=c++0x'
-	let g:clang_auto_select = 1
+  let g:clang_auto_select = 1
 " }}}
 
 " Airline {{{
@@ -190,74 +190,73 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 " }}}
 
 " Syntastic {{{
-	let g:syntastic_cpp_config_file = '.clang_complete'
+  let g:syntastic_cpp_config_file = '.clang_complete'
 " }}}
 
 " Jedi {{{
-	let g:jedi#autocompletion_command = "<M-space>"
+  let g:jedi#autocompletion_command = "<M-space>"
 " }}}
 
 " DScanner {{{
-	"" These absolute paths have to be fixed for each installation if you need to
-	"" use the dscanner plugin to autocomplete the d code.
-	let g:dscanner_path = "~/dev/Dscanner/dscanner"
-	let g:dscanner_includePath = ['/usr/local/Cellar/dmd/2.061/src/phobos', '/usr/local/Cellar/dmd/2.061/druntime/import']
+"" These absolute paths have to be fixed for each installation if you need to
+"" use the dscanner plugin to autocomplete the d code.
+  let g:dscanner_path = "~/dev/Dscanner/dscanner"
+  let g:dscanner_includePath = ['/usr/local/Cellar/dmd/2.061/src/phobos', '/usr/local/Cellar/dmd/2.061/druntime/import']
 " }}}
 "
 " YCM {{{
-		let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/cpp/ycm/*', './*']
-		let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-		let g:ycm_autoclose_preview_window_after_completion = 0
-		let g:ycm_autoclose_preview_window_after_insertion = 0
-    let g:ycm_collect_identifiers_from_tags_files = 1
-    let g:ycm_add_preview_to_completeopt = 1
-    let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
-    let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<S-Enter>']
-    let g:ycm_key_invoke_completion = '<C-Space>'
-    let g:ycm_key_detailed_diagnostics = '<leader>yd'
-    let g:ycm_confirm_extra_conf = 0
-    let g:ycm_goto_buffer_command = 'vertical-split'
+  let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/cpp/ycm/*', './*']
+  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+  let g:ycm_autoclose_preview_window_after_completion = 0
+  let g:ycm_autoclose_preview_window_after_insertion = 0
+  let g:ycm_collect_identifiers_from_tags_files = 1
+  let g:ycm_add_preview_to_completeopt = 1
+  let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+  let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<S-Enter>']
+  let g:ycm_key_invoke_completion = '<C-Space>'
+  let g:ycm_key_detailed_diagnostics = '<leader>yd'
+  let g:ycm_confirm_extra_conf = 0
+  let g:ycm_goto_buffer_command = 'vertical-split'
 " }}}
 "
 " vimwiki {{{
 
-    " My main wiki hosted on Dropbox
-    let dx_wiki={}
-    let dx_wiki.path = '~/Dropbox/vimwiki'
-    let dx_wiki.path_html = '~/Dropbox/vimwiki_html'
-    let dx_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'zsh' : 'zsh'}
-    let dx_wiki.diary_rel_path = 'blog/'
-    let dx_wiki.diary_index = 'diary'
+  " My main wiki hosted on Dropbox
+  let dx_wiki={}
+  let dx_wiki.path = '~/Dropbox/vimwiki'
+  let dx_wiki.path_html = '~/Dropbox/vimwiki_html'
+  let dx_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'zsh' : 'zsh'}
+  let dx_wiki.diary_rel_path = 'blog/'
+  let dx_wiki.diary_index = 'diary'
 
-    " I also happen to have a local wiki that is machine-dependent
-    let prs_wiki={}
-    let prs_wiki.path = '~/vimwiki'
-    let prs_wiki.path_html = '~/vimwiki_html'
+  " I also happen to have a local wiki that is machine-dependent
+  let prs_wiki={}
+  let prs_wiki.path = '~/vimwiki'
+  let prs_wiki.path_html = '~/vimwiki_html'
 
-    " Set all the wikis.
-    let g:vimwiki_list = [dx_wiki, prs_wiki]
+  " Set all the wikis.
+  let g:vimwiki_list = [dx_wiki, prs_wiki]
 "}}}
 
 " netrw {{{
-    let g:netrw_liststyle=3
-    let g:netrw_sort_by="name"
+  let g:netrw_liststyle=3
+  let g:netrw_sort_by="name"
 "}}}
 
 " Silver Searcher (AG) {{{
   let g:aghighlight=1                      " Highlight the search terms after searching
   let g:agprg="ag --column --smart-case"   " Always use the smart-case
-
 " }}}
 
 " CtrlP {{{
   "let g:ctrlp_user_command = {
-        "\   'types' : {
-        "\     1: ['.git', 'cd %s && git ls-files'],
-        "\     2: ['.hg', 'hg --cwd %s locate -I .'],
-        "\     3: ['.bzr', 'bzr ls -R'],
-        "\   },
-        "\   'fallback': 'find %s -type f',
-        "\ }
+  "\   'types' : {
+  "\     1: ['.git', 'cd %s && git ls-files'],
+  "\     2: ['.hg', 'hg --cwd %s locate -I .'],
+  "\     3: ['.bzr', 'bzr ls -R'],
+  "\   },
+  "\   'fallback': 'find %s -type f',
+  "\ }
 " }}}
 
 " Pulse {{{
@@ -270,16 +269,16 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 
   nnoremap <Space> za
 
-	" vimrc managements
-	nnoremap <leader>sv :source $MYVIMRC<CR>
-	nnoremap <leader>ev :vsp $MYVIMRC<CR>
+  " vimrc managements
+  nnoremap <leader>sv :source $MYVIMRC<CR>
+  nnoremap <leader>ev :vsp $MYVIMRC<CR>
 
   " Random things
-	nnoremap <leader>h :nohl<CR>
-	nnoremap <leader>m :call ToggleMouse()<CR>
-	nnoremap <leader>s :source ~/.vimrc<CR>
+  nnoremap <leader>h :nohl<CR>
+  nnoremap <leader>m :call ToggleMouse()<CR>
+  nnoremap <leader>s :source ~/.vimrc<CR>
   nnoremap <leader>b :call SwitchBackground()<CR>
-	nnoremap <leader>n :NumbersToggle<CR>
+  nnoremap <leader>n :NumbersToggle<CR>
 
   " Tabs managements
   nnoremap <leader>d :tabnext<CR>
@@ -297,7 +296,7 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
   nnoremap g* :YcmCompleter GoTo<CR>
 
   " CtrlP plugin
-	nnoremap <leader>pm :CtrlPMixed<CR>
+  nnoremap <leader>pm :CtrlPMixed<CR>
   nnoremap <leader>pb :CtrlPBuffer<CR>
 
   " Shell function
@@ -354,28 +353,28 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 " }}}
 
 " Auto commands {{{
-	autocmd Syntax cpp call EnhanceSyntax()
+  autocmd Syntax cpp call EnhanceSyntax()
 
-  " Protobuf
-	augroup filetype
-		au! BufRead,BufNewFile *.proto setfiletype proto
-	augroup end
+" Protobuf
+  augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+  augroup end
 
   " Folds in vim files
   augroup filetype_vim
-  autocmd!
+    autocmd!
     autocmd FileType vim setlocal foldmethod=marker
   augroup END
 
   " Java autocomplete
-	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-	autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
+  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+  autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 
   " Automatically delete hidden buffers
   "autocmd BufEnter * setlocal bufhidden=delete
 
   " Hide fugitive buffers
-	autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
+  autocmd BufReadPost fugitive://* set bufhidden=delete  " Automatically delete fugitive buffers
 
   " Use markdown for minion notes
   autocmd BufReadPost */notes/*.txt set ft=markdown      " Automatically set markdown for minion notes
