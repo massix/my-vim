@@ -49,7 +49,7 @@ ZSH_THEME="mgengarelli"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bzr dsh work_functions)
+plugins=(git bzr dsh work_functions vi-mode web-search tmux autojump command-not-found nyan lol common-aliases)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,24 +88,26 @@ zstyle ":completion:*:commands" rehash 1
 zstyle ":completion:*" verbose yes
 
 # Some useful aliases
-alias -s      c=g${EDITOR}
-alias -s      h=g${EDITOR}
-alias -s     cc=g${EDITOR}
-alias -s     hh=g${EDITOR}
-alias -s     js=g${EDITOR}
-alias -s     am=g${EDITOR}
-alias -s     in=g${EDITOR}
-alias -s    ini=g${EDITOR}
-alias -s    cpp=g${EDITOR}
-alias -s    hpp=g${EDITOR}
-alias -s    hxx=g${EDITOR}
-alias -s    xml=g${EDITOR}
-alias -s    txt=g${EDITOR}
-alias -s   conf=g${EDITOR}
-alias -s   json=g${EDITOR}
+alias -s      c=${EDITOR}
+alias -s      h=${EDITOR}
+alias -s     cc=${EDITOR}
+alias -s     hh=${EDITOR}
+alias -s     js=${EDITOR}
+alias -s     am=${EDITOR}
+alias -s     in=${EDITOR}
+alias -s    ini=${EDITOR}
+alias -s    cpp=${EDITOR}
+alias -s    hpp=${EDITOR}
+alias -s    hxx=${EDITOR}
+alias -s    xml=${EDITOR}
+alias -s    txt=${EDITOR}
+alias -s   conf=${EDITOR}
+alias -s   json=${EDITOR}
 
 alias tmux='tmux -2'
 alias woman='man' # Stop being sexist.
 
 fortune
 unsetopt auto_name_dirs
+
+bindkey -v
