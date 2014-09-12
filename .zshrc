@@ -110,4 +110,4 @@ alias woman='man' # Stop being sexist.
 fortune
 unsetopt auto_name_dirs
 
-bindkey -v
+bindkey -e
