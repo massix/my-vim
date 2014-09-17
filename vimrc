@@ -72,6 +72,7 @@ filetype plugin indent on
   Plugin 'flazz/vim-colorschemes.git'
   Plugin 'terryma/vim-multiple-cursors.git'
   Plugin 'bling/vim-bufferline.git'
+  Plugin 'fatih/vim-go.git'
 " }}}
 
 " ----- Plugins tested and removed (but handy to have'em here) ----- {{{
@@ -350,6 +351,12 @@ filetype plugin indent on
 
   " A nice cat..
   nnoremap <leader>cat :echo ">^.^<"<CR>
+
+  " Readline bindings (sorry, pure VIm users.)
+  inoremap <C-e> <ESC>g_i
+  inoremap <C-a> <ESC>^i
+  inoremap <C-k> <ESC>dg_i
+  inoremap <C-y> <ESC>pA
 " }}}
 
 " Auto commands {{{
@@ -357,13 +364,19 @@ filetype plugin indent on
 
 " Protobuf
   augroup filetype
-  au! BufRead,BufNewFile *.proto setfiletype proto
+    autocmd!
+    au! BufRead,BufNewFile *.proto setfiletype proto
   augroup end
 
   " Folds in vim files
   augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+  augroup END
+
+  augroup filetype_go
+    autocmd!
+    autocmd BufRead,BufNewFile *.go setfiletype go
   augroup END
 
   " Java autocomplete

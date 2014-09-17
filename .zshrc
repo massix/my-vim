@@ -49,7 +49,7 @@ ZSH_THEME="mgengarelli"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bzr dsh work_functions vi-mode web-search tmux autojump command-not-found nyan lol common-aliases)
+plugins=(git bzr dsh work_functions vi-mode web-search tmux autojump command-not-found nyan lol common-aliases todo-list)
 
 source $ZSH/oh-my-zsh.sh
 
