@@ -73,6 +73,7 @@ filetype plugin indent on
   Plugin 'terryma/vim-multiple-cursors.git'
   Plugin 'bling/vim-bufferline.git'
   Plugin 'fatih/vim-go.git'
+  Plugin 'itchyny/calendar.vim.git'
 " }}}
 
 " ----- Plugins tested and removed (but handy to have'em here) ----- {{{
@@ -133,6 +134,12 @@ filetype plugin indent on
     else
       echon "Terminal mode."
     endif
+  endfunction
+" }}}
+
+" Move the cursor a-la Emacs  {{{
+  function! MoveCursorToBeginningOfLine()
+    let position = getpos(".")
   endfunction
 " }}}
 
@@ -260,6 +267,11 @@ filetype plugin indent on
   "\ }
 " }}}
 
+" Calendar {{{
+  let g:calendar_google_calendar = 1
+  let g:calendar_google_task = 1
+" }}}
+
 " Pulse {{{
   let g:vim_search_pulse_mode = 'pattern'
   let g:vim_search_pulse_color_list = [22, 28, 34, 40, 46]
@@ -352,10 +364,13 @@ filetype plugin indent on
   " A nice cat..
   nnoremap <leader>cat :echo ">^.^<"<CR>
 
+  " A reminder
+  nnoremap <leader>fap :echo "The fappening"<CR>
+
   " Readline bindings (sorry, pure VIm users.)
-  inoremap <C-e> <ESC>g_i
+  inoremap <C-e> <ESC>$a
   inoremap <C-a> <ESC>^i
-  inoremap <C-k> <ESC>dg_i
+  inoremap <C-k> <ESC>ldg_a
   inoremap <C-y> <ESC>pA
 " }}}
 
