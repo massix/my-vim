@@ -74,6 +74,7 @@ filetype plugin indent on
   Plugin 'bling/vim-bufferline.git'
   Plugin 'fatih/vim-go.git'
   Plugin 'itchyny/calendar.vim.git'
+  Plugin 'scrooloose/nerdtree.git'
 " }}}
 
 " ----- Plugins tested and removed (but handy to have'em here) ----- {{{
@@ -86,7 +87,6 @@ filetype plugin indent on
   "Plugin 'honza/vim-snippets.git'
   "Plugin 'scrooloose/syntastic'
   "Plugin 'airblade/vim-gitgutter.git'
-  "Plugin 'scrooloose/nerdtree.git'
   "Plugin 'thetoast/diff-fold.git'
   "Plugin 'godlygeek/csapprox.git'
 " }}}
@@ -278,6 +278,15 @@ filetype plugin indent on
   let g:vim_search_pulse_duration = 400
 " }}}
 
+" NerdTree {{{
+  let NERDTreeChDirMode = 2
+  let NERDTreeMouseMode = 3
+  let NERDTreeShowBookmarks = 1
+  let NERDTreeWinPos = "right"
+  let NERDTreeDirArrows = 1
+  let NERDTreeAutoDeleteBuffer = 1
+" }}}
+
 " Custom mappings {{{
 
   nnoremap <Space> za
@@ -372,6 +381,10 @@ filetype plugin indent on
   inoremap <C-a> <ESC>^i
   inoremap <C-k> <ESC>ldg_a
   inoremap <C-y> <ESC>pA
+
+  " NerdTree
+  nnoremap <leader>nn :NERDTreeToggle<CR>
+  nnoremap <leader>nr :NERDTreeFocus<CR>:vertical resize 31<CR>
 " }}}
 
 " Auto commands {{{
