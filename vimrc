@@ -62,7 +62,6 @@ filetype plugin indent on
   Plugin 'zhaocai/GoldenView.Vim.git'
   Plugin 'jnurmine/Zenburn.git'
   Plugin 'git://repo.or.cz/vcscommand.git'
-  Plugin 'chrisbra/NrrwRgn.git'
   Plugin 'vim-scripts/vimwiki.git'
   Plugin 'mhinz/vim-signify.git'
   Plugin 'edkolev/promptline.vim.git'
@@ -89,6 +88,7 @@ filetype plugin indent on
   "Plugin 'airblade/vim-gitgutter.git'
   "Plugin 'thetoast/diff-fold.git'
   "Plugin 'godlygeek/csapprox.git'
+  "Plugin 'chrisbra/NrrwRgn.git'
 " }}}
 
 "" Better highlighting for C++ stuff {{{
