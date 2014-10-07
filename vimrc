@@ -27,7 +27,7 @@
   set smartcase
   set hlsearch
   set laststatus=2
-  set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
+  set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{autotags#statusline()}\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
   set display=lastline
   set rtp+=~/.vim/bundle/vundle/
   set conceallevel=2
@@ -74,6 +74,10 @@ filetype plugin indent on
   Plugin 'fatih/vim-go.git'
   Plugin 'itchyny/calendar.vim.git'
   Plugin 'scrooloose/nerdtree.git'
+  Plugin 'majutsushi/tagbar.git'
+  Plugin 'ludovicchabant/vim-gutentags'
+  "Plugin 'xolox/vim-misc.git'
+  "Plugin 'xolox/vim-easytags.git'
 " }}}
 
 " ----- Plugins tested and removed (but handy to have'em here) ----- {{{
@@ -267,6 +271,11 @@ filetype plugin indent on
   "\ }
 " }}}
 
+" Gutentags {{{
+  let g:gutentags_executable = 'ctags-exuberant'
+  let g:gutentags_project_root = ['Makefile.am', 'Makefile', 'Makefile.in']
+" }}}
+
 " Calendar {{{
   let g:calendar_google_calendar = 1
   let g:calendar_google_task = 1
@@ -385,6 +394,9 @@ filetype plugin indent on
   " NerdTree
   nnoremap <leader>nn :NERDTreeToggle<CR>
   nnoremap <leader>nr :NERDTreeFocus<CR>:vertical resize 31<CR>
+
+  " Tagbar
+  nnoremap <leader>T :TagbarToggle<CR>
 " }}}
 
 " Auto commands {{{
