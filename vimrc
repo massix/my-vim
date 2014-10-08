@@ -27,7 +27,6 @@
   set smartcase
   set hlsearch
   set laststatus=2
-  set statusline=%2*[%02n]%*\ %f\ %3*%(%m%)%4*%(%r%)%*%=%b\ %{autotags#statusline()}\ %{fugitive#statusline()}\ 0x%B\ \ <%l,%c%V>\ %P
   set display=lastline
   set rtp+=~/.vim/bundle/vundle/
   set conceallevel=2
@@ -397,6 +396,24 @@ filetype plugin indent on
 
   " Tagbar
   nnoremap <leader>T :TagbarToggle<CR>
+
+  " Remap <C-c> to behave like <ESC>
+  inoremap <C-c> <ESC>
+  vnoremap <C-c> <ESC>
+  nnoremap <C-c> <ESC>
+" }}}
+
+" Chords {{{
+  " NerdTree
+  nnoremap <C-x><C-f> :NERDTreeToggle<CR>
+  nnoremap <C-x><C-e> :NERDTreeFocus<CR>:vertical resize 31<CR>
+
+  nnoremap <C-x><C-d> :TagbarToggle<CR>
+  nnoremap <C-x><C-a> :wa!<CR>
+  nnoremap <C-x><C-o> viw"gy:Ag <C-R>g % ~/vim-compile.zsh<CR>
+  nnoremap <C-x><C-p> :CtrlP<CR>
+  nnoremap <C-x><C-t> :tabe<CR>
+  nnoremap <C-x><C-w> :tabclose<CR>
 " }}}
 
 " Auto commands {{{
