@@ -110,3 +110,5 @@ fortune
 unsetopt auto_name_dirs
 
 bindkey -e
+
+wtdl

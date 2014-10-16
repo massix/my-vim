@@ -75,6 +75,7 @@ filetype plugin indent on
   Plugin 'scrooloose/nerdtree.git'
   Plugin 'majutsushi/tagbar.git'
   Plugin 'ludovicchabant/vim-gutentags'
+  Plugin 'jeetsukumaran/vim-buffergator.git'
   "Plugin 'xolox/vim-misc.git'
   "Plugin 'xolox/vim-easytags.git'
 " }}}
