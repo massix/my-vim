@@ -308,7 +308,7 @@ filetype plugin indent on
   nnoremap <leader>h :nohl<CR>
   nnoremap <leader>m :call ToggleMouse()<CR>
   nnoremap <leader>s :source ~/.vimrc<CR>
-  nnoremap <leader>b :call SwitchBackground()<CR>
+  "nnoremap <leader>b :call SwitchBackground()<CR>
   nnoremap <leader>n :NumbersToggle<CR>
 
   " Tabs managements
