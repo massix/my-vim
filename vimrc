@@ -402,6 +402,17 @@ filetype plugin indent on
   inoremap <C-c> <ESC>
   vnoremap <C-c> <ESC>
   nnoremap <C-c> <ESC>
+
+  " Sudo !
+  cnoremap w!! w !sudo tee % > /dev/null
+" }}}
+
+" Custom commands {{{
+  " Print the full path of a file
+  command!   -nargs=*    Fwd    echon expand("<args>:h")
+
+  " Print the path of the current file
+  command!   -nargs=*    Cwd    Fwd %
 " }}}
 
 " Chords {{{
