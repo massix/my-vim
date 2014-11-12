@@ -66,7 +66,7 @@ filetype plugin indent on
   Plugin 'edkolev/promptline.vim.git'
   Plugin 'edkolev/tmuxline.vim.git'
   Plugin 'fabi1cazenave/suckless.vim.git'
-  Plugin 'inside/vim-search-pulse.git'
+  "Plugin 'inside/vim-search-pulse.git'
   Plugin 'flazz/vim-colorschemes.git'
   Plugin 'terryma/vim-multiple-cursors.git'
   Plugin 'bling/vim-bufferline.git'
@@ -76,6 +76,10 @@ filetype plugin indent on
   Plugin 'majutsushi/tagbar.git'
   Plugin 'ludovicchabant/vim-gutentags'
   Plugin 'jeetsukumaran/vim-buffergator.git'
+  Plugin 'L9'
+  Plugin 'clickable.vim'
+  Plugin 'Rykka/clickable-things.git'
+  Plugin 'highlight.vim'
   "Plugin 'xolox/vim-misc.git'
   "Plugin 'xolox/vim-easytags.git'
 " }}}
@@ -358,11 +362,11 @@ filetype plugin indent on
   nnoremap <leader>gca viw"gy:AgAdd <C-R>g:: % ~/vim-compile.zsh<CR>
 
   " Pulse
-  nmap n n<Plug>Pulse
-  nmap N N<Plug>Pulse
-  nmap * *<Plug>Pulse
-  nmap # #<Plug>Pulse
-  cmap <enter> <Plug>PulseFirst
+  "nmap n n<Plug>Pulse
+  "nmap N N<Plug>Pulse
+  "nmap * *<Plug>Pulse
+  "nmap # #<Plug>Pulse
+  "cmap <enter> <Plug>PulseFirst
 
   nnoremap ; :
 

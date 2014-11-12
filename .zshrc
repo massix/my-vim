@@ -6,7 +6,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="gentoo"
-ZSH_THEME="mgengarelli"
+#ZSH_THEME="mgengarelli"
+ZSH_THEME="ys"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -49,7 +50,7 @@ ZSH_THEME="mgengarelli"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bzr dsh ke-project-manager vi-mode web-search tmux autojump command-not-found nyan lol common-aliases todo-list)
+plugins=(git bzr dsh ke-project-manager emacs web-search tmux autojump command-not-found nyan lol common-aliases todo-list)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,7 +80,9 @@ unset GREP_OPTIONS
 start_agent
 
 
-export EDITOR=vim
+export EDITOR="$(which emacsclient) -t"
+export ALTERNATE_EDITOR="emacs -nw"
+
 [[ -e ~/minion/add_to_your_profile ]] && source ~/minion/add_to_your_profile
 
 # Do not trust ZSH cache for completion
@@ -105,6 +108,7 @@ alias -s   json=${EDITOR}
 
 alias tmux='tmux -2'
 alias woman='man' # Stop being sexist.
+alias e='emacsclient -t'
 
 fortune
 unsetopt auto_name_dirs
@@ -112,3 +116,6 @@ unsetopt auto_name_dirs
 bindkey -e
 
 wtdl
+
+[ -e ${HOME}/.zshenv ] && source ${HOME}/.zshenv
+
